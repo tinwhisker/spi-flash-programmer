@@ -326,7 +326,7 @@ class SerialProgrammer:
 
         # Write page
         self._sendCommand('%s%08x' % (COMMAND_FLASH_WRITE, page))
-        time.sleep(.2)  # Sleep 200 ms
+        time.sleep(.005)  # Sleep 5 ms
 
         if not self._waitForMessage(COMMAND_FLASH_WRITE):
             self._debug('Invalid / no response for FLASH_WRITE command')
