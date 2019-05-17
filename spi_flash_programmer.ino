@@ -94,7 +94,7 @@ void setup()
   pinMode(nCsIo, OUTPUT);
   digitalWrite(nCsIo, HIGH); // disable flash device
 
-  delay(10);
+  delay(2);
 }
 
 void loop()
@@ -278,7 +278,7 @@ void write_page(uint32_t address)
   digitalWrite(nCsIo, LOW);
   impl_enable_write();
   digitalWrite(nCsIo, HIGH);
-  delay(10);
+  delay(2);
 
   digitalWrite(nCsIo, LOW);
   impl_write_page(address);
@@ -293,7 +293,7 @@ void erase_all()
   digitalWrite(nCsIo, LOW);
   impl_enable_write();
   digitalWrite(nCsIo, HIGH);
-  delay(10); // Wait for 10 ms
+  delay(2); // Wait for 2 ms
 
   digitalWrite(nCsIo, LOW);
   impl_erase_chip();
@@ -308,7 +308,7 @@ void erase_sector(uint32_t address)
   digitalWrite(nCsIo, LOW);
   impl_enable_write();
   digitalWrite(nCsIo, HIGH);
-  delay(10);
+  delay(2);
 
   digitalWrite(nCsIo, LOW);
   impl_erase_sector(address);
@@ -654,7 +654,7 @@ void impl_write_protection_disable(void)
   digitalWrite(nCsIo, LOW);
   SPI.transfer(WREN); // Write enable
   digitalWrite(nCsIo, HIGH);
-  delay(10);
+  delay(2);
 
   digitalWrite(nCsIo, LOW);
   SPI.transfer(WRSR);                         // Write register instruction
@@ -665,7 +665,7 @@ void impl_write_protection_disable(void)
   digitalWrite(nCsIo, LOW);
   SPI.transfer(WREN); // Write enable
   digitalWrite(nCsIo, HIGH);
-  delay(10);
+  delay(2);
 
   digitalWrite(nCsIo, LOW);
   SPI.transfer(WRSR2);                        // Write register 2 instruction
@@ -697,7 +697,7 @@ void impl_write_protection_enable(void)
   digitalWrite(nCsIo, LOW);
   SPI.transfer(WREN); // Write enable
   digitalWrite(nCsIo, HIGH);
-  delay(10);
+  delay(2);
 
   digitalWrite(nCsIo, LOW);
   SPI.transfer(WRSR);                         // Write register instruction
@@ -708,7 +708,7 @@ void impl_write_protection_enable(void)
   digitalWrite(nCsIo, LOW);
   SPI.transfer(WREN); // Write enable
   digitalWrite(nCsIo, HIGH);
-  delay(10);
+  delay(2);
 
   digitalWrite(nCsIo, LOW);
   SPI.transfer(WRSR2);                        // Write register 2 instruction
